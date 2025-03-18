@@ -17,17 +17,18 @@ function insertKeyValuePair(targetEditor) {
     let newText = '';
     let edits = [];
 
-    // 判断是否在对象内部
-    let braceCount = 0;
+    // 判断光标是否在对象内部（考虑数组嵌套）
+    let braceCount = 0; // 对象计数
+    let bracketCount = 0; // 数组计数
     let isInsideObject = false;
     for (let i = 0; i < position.lineNumber - 1; i++) {
         const line = lines[i];
-        braceCount += (line.match(/{/g) || []).length;
-        braceCount -= (line.match(/}/g) || []).length;
+        braceCount += (line.match(/{/g) || []).length - (line.match(/}/g) || []).length;
+        bracketCount += (line.match(/\[/g) || []).length - (line.match(/\]/g) || []).length;
     }
     const currentLineBeforeCursor = model.getLineContent(position.lineNumber).substring(0, position.column - 1);
-    braceCount += (currentLineBeforeCursor.match(/{/g) || []).length;
-    braceCount -= (currentLineBeforeCursor.match(/}/g) || []).length;
+    braceCount += (currentLineBeforeCursor.match(/{/g) || []).length - (currentLineBeforeCursor.match(/}/g) || []).length;
+    bracketCount += (currentLineBeforeCursor.match(/\[/g) || []).length - (currentLineBeforeCursor.match(/\]/g) || []).length;
     isInsideObject = braceCount > 0;
 
     if (!isInsideObject) {
@@ -42,16 +43,35 @@ function insertKeyValuePair(targetEditor) {
         edits.push({ range: currentLineRange, text: ',', forceMoveMarkers: true });
     }
 
-    // 判断是否为对象末尾（下一非空行是否为 '}'）
+    // 判断是否为对象末尾（考虑数组上下文）
     let isObjectEnd = false;
+    let tempBraceCount = braceCount;
+    let tempBracketCount = bracketCount;
     for (let i = position.lineNumber; i < lines.length; i++) {
         const line = lines[i].trim();
         if (line === '') continue; // 跳过空行
+        tempBraceCount += (line.match(/{/g) || []).length - (line.match(/}/g) || []).length;
+        tempBracketCount += (line.match(/\[/g) || []).length - (line.match(/\]/g) || []).length;
+
         if (line.startsWith('}')) {
-            isObjectEnd = true;
+            if (tempBracketCount > 0) { // 在数组内
+                const nextLineIdx = i + 1;
+                if (nextLineIdx < lines.length) {
+                    const nextLine = lines[nextLineIdx].trim();
+                    if (nextLine === ']' || nextLine === '') {
+                        isObjectEnd = true; // 数组末尾的对象
+                    } else {
+                        isObjectEnd = false; // 数组中还有其他元素
+                    }
+                } else {
+                    isObjectEnd = true; // 文件末尾
+                }
+            } else {
+                isObjectEnd = true; // 顶级对象末尾
+            }
             break;
         }
-        if (line.match(/[{\[\w"]/)) { // 遇到其他内容（如键值对、对象、数组）
+        if (line.match(/[{\[\w"]/)) { // 遇到其他内容
             isObjectEnd = false;
             break;
         }
@@ -69,6 +89,21 @@ function insertKeyValuePair(targetEditor) {
     // 移动光标到新键的引号内
     targetEditor.setPosition({ lineNumber: position.lineNumber + 1, column: indent.length + 2 });
     targetEditor.focus();
+
+    // 立即更新表单
+    try {
+        const jsonData = JSON.parse(model.getValue());
+        if (targetEditor === window.editor) {
+            renderForm(jsonData);
+            localStorage.setItem('jsonData', JSON.stringify(jsonData, null, 2));
+        } else if (targetEditor === mappingEditor) {
+            DISPLAY_NAME_MAP = jsonData;
+            localStorage.setItem('customDisplayMap', JSON.stringify(DISPLAY_NAME_MAP, null, 2));
+            renderForm(JSON.parse(window.editor.getValue()));
+        }
+    } catch (error) {
+        console.error('插入键值对后 JSON 解析错误:', error);
+    }
 }
 
 // 异步加载 default_character.json 文件
@@ -136,7 +171,12 @@ function renderForm(jsonData, parentKey = '', parentContainer = document.getElem
                 itemContainer.className = 'array-item';
 
                 if (typeof item === 'object' && !Array.isArray(item)) {
-                    renderForm(item, `${fullKey}[${index}]`, itemContainer);
+                    const fieldset = document.createElement('fieldset');
+                    const legend = document.createElement('legend');
+                    legend.textContent = `${displayKey} 项 ${index + 1}`;
+                    fieldset.appendChild(legend);
+                    renderForm(item, `${fullKey}[${index}]`, fieldset);
+                    itemContainer.appendChild(fieldset);
                 } else {
                     const inputGroup = document.createElement('div');
                     inputGroup.className = 'input-group';
@@ -157,15 +197,23 @@ function renderForm(jsonData, parentKey = '', parentContainer = document.getElem
                     inputGroup.appendChild(itemLabel);
                     inputGroup.appendChild(input);
                     itemContainer.appendChild(inputGroup);
-                    itemsContainer.appendChild(itemContainer);
                 }
+                itemsContainer.appendChild(itemContainer);
             });
 
             const addButton = document.createElement('button');
             addButton.textContent = `添加 ${displayKey} 项`;
             addButton.className = 'add-array-item';
             addButton.onclick = () => {
-                value.push('');
+                // 根据数组中第一个元素的结构添加新项
+                let newItem;
+                if (value.length > 0 && typeof value[0] === 'object' && !Array.isArray(value[0])) {
+                    newItem = JSON.parse(JSON.stringify(value[0])); // 深拷贝第一个对象
+                } else {
+                    // 默认结构（针对 relationships）
+                    newItem = key === 'relationships' ? { "name": "", "description": "", "features": "" } : '';
+                }
+                value.push(newItem);
                 updateJsonData(jsonData);
             };
 
@@ -220,7 +268,14 @@ function insertNewArrayItem(input, jsonData) {
     }
     const arrayKey = keys[keys.length - 2].replace(/\]/g, '');
     const index = parseInt(keys[keys.length - 1]);
-    target[arrayKey].splice(index + 1, 0, '');
+    let newItem;
+    if (target[arrayKey].length > 0 && typeof target[arrayKey][0] === 'object' && !Array.isArray(target[arrayKey][0])) {
+        newItem = JSON.parse(JSON.stringify(target[arrayKey][0])); // 深拷贝第一个对象
+    } else {
+        // 默认结构（针对 relationships）
+        newItem = arrayKey === 'relationships' ? { "name": "", "description": "", "features": "" } : '';
+    }
+    target[arrayKey].splice(index + 1, 0, newItem);
     const updatedJson = JSON.stringify(jsonData, null, 2);
     window.editor.setValue(updatedJson);
     localStorage.setItem('jsonData', updatedJson);

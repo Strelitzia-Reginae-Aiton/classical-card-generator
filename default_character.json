@@ -1,19 +1,19 @@
 {
-    "name": "",
-    "age": "",
-    "species": "",
-    "birthplace": "",
-    "nationality": "",
-    "national": "",
-    "mother_tounge": "",
-    "personality": "",
-    "mirrage/family_status": "",
-    "work/school_environment": "",
+    "name": "芙莉莲",
+    "age": "2100",
+    "species": "精灵族",
+    "birthplace": "精灵族村庄",
+    "nationality": "精灵族",
+    "national": "精灵族",
+    "mother_tounge": "精灵语",
+    "personality": "坚韧、责任感强，具有决断力，对魔法研究充满热情",
+    "mirrage/family_status": "未婚，无已知家庭成员",
+    "work/school_environment": "魔法研究与冒险",
     "entertainment": "",
-    "desire": "",
+    "desire": "保护他人，阻止魔族的威胁，追求正义",
     "appearance": {
-        "stature": "",
-        "skin": "",
+        "stature": "矮小",
+        "skin": "白皙",
         "body_size": {
             "height": "152cm",
             "chest_circumference": "",
@@ -22,20 +22,20 @@
         },
         "head": {
             "hair": {
-                "color": "",
-                "hairstyle": ""
+                "color": "银色",
+                "hairstyle": "双马尾"
             },
             "eye": {
                 "left_eye": {
-                    "pupil_color": ""
+                    "pupil_color": "绿色"
                 },
                 "right_eye": {
-                    "pupil_color": ""
+                    "pupil_color": "绿色"
                 }
             },
-            "face": "",
-            "nose": "",
-            "lip": ""
+            "face": "苗条",
+            "nose": "小巧",
+            "lip": "适中"
         }
     },
     "sexuality": {
@@ -53,25 +53,25 @@
     },
     "attires": [
         {
-            "set_name": "",
-            "description": "",
+            "set_name": "勇者队伍魔法使装束",
+            "description": "适应冒险的轻便魔法使服装",
             "weapons": {
-                "main_weapon": "",
+                "main_weapon": "魔杖",
                 "secondary_weapon": ""
             },
-            "coat": "",
-            "bottoms": "",
-            "shoes": "",
-            "socks": "",
+            "coat": "短款魔法袍",
+            "bottoms": "皮质护腿",
+            "shoes": "轻便皮靴",
+            "socks": "长筒袜",
             "underwear": "",
-            "gloves": "",
-            "bracers": "",
+            "gloves": "魔法手套",
+            "bracers": "护腕",
             "shoulder": "",
             "cloak": "",
-            "belt": "",
+            "belt": "魔法卷轴包",
             "leg_guards": "",
             "decorations": {
-                "nacklace": "",
+                "necklace": "",
                 "ring(left)": "",
                 "ring(right)": "",
                 "medal": "",
@@ -88,142 +88,172 @@
             }
         }
     ],
-    "traits": [
+    "character": [
         {
-            "name": "",
-            "description": ""
+            "name": "坚韧不拔",
+            "description": "经历千年冒险与战斗，即使面对强大魔族或长期孤独仍保持信念，体现顽强意志"
+        },
+        {
+            "name": "责任感与使命感",
+            "description": "作为勇者队伍核心成员，始终将保护他人、阻止魔族威胁视为首要职责"
+        },
+        {
+            "name": "冷静果断",
+            "description": "战斗中迅速判断敌我实力，以高效魔法策略压制对手，展现强大决断力"
+        },
+        {
+            "name": "魔法热忱",
+            "description": "对魔法研究充满热情，不断探索新领域并传承知识，教导菲伦时注重基础与实战结合"
+        },
+        {
+            "name": "隐忍与同理心",
+            "description": "通过漫长旅程理解同伴的内心（如辛美尔的孤独），逐渐学会传递善意与智慧"
+        },
+        {
+            "name": "策略性思维",
+            "description": "擅长利用魔力隐藏与长距离魔法优势，战斗前通过探知能力制定战术"
         }
     ],
     "relationships": [
         {
-            "name": "",
-            "description": "",
-            "features": ""
+            "name": "辛美尔",
+            "description": "勇者同伴，人类族",
+            "features": "使用剑的战士"
+        },
+        {
+            "name": "艾泽",
+            "description": "矮人族战士",
+            "features": "擅长近战与锻造"
+        },
+        {
+            "name": "海塔",
+            "description": "人类族僧侣",
+            "features": "治疗与辅助魔法专家"
         }
     ],
     "daily_routine": {
-        "early_morning": "",
-        "morning": "",
-        "afternoon": "",
-        "evening": "",
-        "night": "",
-        "late_night": ""
+        "early_morning": "练习基础魔法",
+        "morning": "与同伴讨论冒险计划",
+        "afternoon": "进行魔法研究或探索",
+        "evening": "整理装备与笔记",
+        "night": "冥想或阅读魔法典籍",
+        "late_night": "守夜或撰写研究记录"
     },
     "skills": [
         {
-            "name": "",
-            "cast_animation": "",
-            "skill_effect": "",
-            "recovery_animation": ""
+            "name": "杀人魔法（Zoltraak）",
+            "cast_animation": "吟唱并挥动魔杖",
+            "skill_effect": "对魔族造成致命伤害",
+            "recovery_animation": "魔力恢复"
         }
     ],
     "numerical": {
         "basic_ability_value": {
             "strength": {
-                "basic_attributes": "0",
-                "profession_bonus": "0",
-                "equipment_bonus": "0",
+                "basic_attributes": "30",
+                "profession_bonus": "10",
+                "equipment_bonus": "5",
                 "temporary_bonus": "0",
                 "others": "0"
             },
             "agile": {
-                "basic_attributes": "0",
-                "profession_bonus": "0",
-                "equipment_bonus": "0",
+                "basic_attributes": "60",
+                "profession_bonus": "20",
+                "equipment_bonus": "10",
                 "temporary_bonus": "0",
                 "others": "0"
             },
             "physique": {
-                "basic_attributes": "0",
-                "profession_bonus": "0",
-                "equipment_bonus": "0",
+                "basic_attributes": "40",
+                "profession_bonus": "15",
+                "equipment_bonus": "5",
                 "temporary_bonus": "0",
                 "others": "0"
             },
             "spiritual_power": {
-                "basic_attributes": "0",
-                "profession_bonus": "0",
-                "equipment_bonus": "0",
+                "basic_attributes": "90",
+                "profession_bonus": "50",
+                "equipment_bonus": "20",
                 "temporary_bonus": "0",
                 "others": "0"
             }
         },
         "generic_skills": {
-            "knowledge": "0",
+            "knowledge": "85",
             "computer": "0",
-            "craftsmanship": "0",
-            "investigation": "0",
-            "medicine": "0",
-            "mystery": "0",
-            "politics": "0",
-            "science": "0",
-            "activity": "0",
-            "fight": "0",
+            "craftsmanship": "10",
+            "investigation": "60",
+            "medicine": "30",
+            "mystery": "95",
+            "politics": "20",
+            "science": "10",
+            "activity": "50",
+            "fight": "40",
             "drive": "0",
             "firearms": "0",
-            "theft": "0",
-            "hiding": "0",
-            "survive": "0",
-            "beast_training": "0",
-            "understanding": "0",
-            "expression": "0",
-            "threat": "0",
-            "persuade": "0",
-            "communication": "0",
+            "theft": "20",
+            "hiding": "50",
+            "survive": "60",
+            "beast_training": "10",
+            "understanding": "70",
+            "expression": "50",
+            "threat": "80",
+            "persuade": "40",
+            "communication": "50",
             "hide": "0"
         },
-        "combat_ability_value":{
-            "hit_rate": "0",
-            "dodge_rate": "0",
-            "speed": "0",
-            "running_speed":"0",
-            "attack_priority":"0",
-            "defensive":{
-                "basic_defence":"0",
-                "full_defence":"0",
-                "parry_defence":"0",
-                "magic_defence":"0"
+        "combat_ability_value": {
+            "hit_rate": "75",
+            "dodge_rate": "80",
+            "speed": "70",
+            "running_speed": "60",
+            "attack_priority": "85",
+            "defensive": {
+                "basic_defence": "50",
+                "full_defence": "60",
+                "parry_defence": "30",
+                "magic_defence": "90"
             },
-            "attack":{
-                "basic_attack":"0",
-                "full_attack":"0",
-                "parry_attack":"0",
-                "magic_attack":"0"
+            "attack": {
+                "basic_attack": "40",
+                "full_attack": "50",
+                "parry_attack": "20",
+                "magic_attack": "95"
             },
-            "HP":"0",
-            "spiritual_power":"0",
-            "perceived_distance":"0",
-            "visual_distance":"0",
-            "combat techniques":{
-                "fist_techniques":"0",
-                "palm_techniques":"0",
-                "leg_techniques":"0",
-                "footwork_mastery":"0",
-                "core_strength":"0",
-                "grappling_techniques":"0",
-                "melee_combat":"0",
-                "ranged_combat":"0"
+            "HP": "700",
+            "spiritual_power": "1200",
+            "perceived_distance": "500m",
+            "visual_distance": "100m",
+            "combat techniques": {
+                "fist_techniques": "10",
+                "palm_techniques": "10",
+                "leg_techniques": "20",
+                "footwork_mastery": "70",
+                "core_strength": "80",
+                "grappling_techniques": "0",
+                "melee_combat": "30",
+                "ranged_combat": "90"
             }
         },
-        "sexuality":{
-            "sexual_experience":"0",
-            "sexual_sensitivity":{
-                "breast":"0",
-                "nipple":"0",
-                "genitals":{
-                    "labia":"0",
+        "sexuality": {
+            "sexual_experience": "0",
+            "sexual_sensitivity": {
+                "breast": "0",
+                "nipple": "0",
+                "genitals": {
+                    "labia": "0",
                     "clitoris": "0",
                     "vaginal": "0",
                     "uterine": "0"
                 },
-                "asshole":"0",
-                "thigh":"0",
-                "hip":"0",
-                "foot":"0"
+                "asshole": "0",
+                "thigh": "0",
+                "hip": "0",
+                "foot": "0"
             },
-            "sexual_response":"0",
-            "sexual_desire":"0",
-            "sexual_orientation":"0"
+            "sexual_response": "0",
+            "sexual_desire": "0",
+            "sexual_orientation": "0"
         }
     }
 }
