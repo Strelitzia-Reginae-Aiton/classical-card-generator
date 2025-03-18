@@ -1,0 +1,229 @@
+{
+    "name": "",
+    "age": "",
+    "species": "",
+    "birthplace": "",
+    "nationality": "",
+    "national": "",
+    "mother_tounge": "",
+    "personality": "",
+    "mirrage/family_status": "",
+    "work/school_environment": "",
+    "entertainment": "",
+    "desire": "",
+    "appearance": {
+        "stature": "",
+        "skin": "",
+        "body_size": {
+            "height": "152cm",
+            "chest_circumference": "",
+            "waist_circumference": "",
+            "hip_circumference": ""
+        },
+        "head": {
+            "hair": {
+                "color": "",
+                "hairstyle": ""
+            },
+            "eye": {
+                "left_eye": {
+                    "pupil_color": ""
+                },
+                "right_eye": {
+                    "pupil_color": ""
+                }
+            },
+            "face": "",
+            "nose": "",
+            "lip": ""
+        }
+    },
+    "sexuality": {
+        "breast": "",
+        "genitals": {
+            "labia": "",
+            "clitoris": "",
+            "vaginal": "",
+            "uterine": ""
+        },
+        "asshole": "",
+        "thigh": "",
+        "hip": "",
+        "foot": ""
+    },
+    "attires": [
+        {
+            "set_name": "",
+            "description": "",
+            "weapons": {
+                "main_weapon": "",
+                "secondary_weapon": ""
+            },
+            "coat": "",
+            "bottoms": "",
+            "shoes": "",
+            "socks": "",
+            "underwear": "",
+            "gloves": "",
+            "bracers": "",
+            "shoulder": "",
+            "cloak": "",
+            "belt": "",
+            "leg_guards": "",
+            "decorations": {
+                "nacklace": "",
+                "ring(left)": "",
+                "ring(right)": "",
+                "medal": "",
+                "earrings(left)": "",
+                "earrings(right)": "",
+                "bracelet": ""
+            },
+            "special": {
+                "scarf": "",
+                "pendant": "",
+                "tatto": "",
+                "inner_armor": "",
+                "mask/glasses": ""
+            }
+        }
+    ],
+    "traits": [
+        {
+            "name": "",
+            "description": ""
+        }
+    ],
+    "relationships": [
+        {
+            "name": "",
+            "description": "",
+            "features": ""
+        }
+    ],
+    "daily_routine": {
+        "early_morning": "",
+        "morning": "",
+        "afternoon": "",
+        "evening": "",
+        "night": "",
+        "late_night": ""
+    },
+    "skills": [
+        {
+            "name": "",
+            "cast_animation": "",
+            "skill_effect": "",
+            "recovery_animation": ""
+        }
+    ],
+    "numerical": {
+        "basic_ability_value": {
+            "strength": {
+                "basic_attributes": "0",
+                "profession_bonus": "0",
+                "equipment_bonus": "0",
+                "temporary_bonus": "0",
+                "others": "0"
+            },
+            "agile": {
+                "basic_attributes": "0",
+                "profession_bonus": "0",
+                "equipment_bonus": "0",
+                "temporary_bonus": "0",
+                "others": "0"
+            },
+            "physique": {
+                "basic_attributes": "0",
+                "profession_bonus": "0",
+                "equipment_bonus": "0",
+                "temporary_bonus": "0",
+                "others": "0"
+            },
+            "spiritual_power": {
+                "basic_attributes": "0",
+                "profession_bonus": "0",
+                "equipment_bonus": "0",
+                "temporary_bonus": "0",
+                "others": "0"
+            }
+        },
+        "generic_skills": {
+            "knowledge": "0",
+            "computer": "0",
+            "craftsmanship": "0",
+            "investigation": "0",
+            "medicine": "0",
+            "mystery": "0",
+            "politics": "0",
+            "science": "0",
+            "activity": "0",
+            "fight": "0",
+            "drive": "0",
+            "firearms": "0",
+            "theft": "0",
+            "hiding": "0",
+            "survive": "0",
+            "beast_training": "0",
+            "understanding": "0",
+            "expression": "0",
+            "threat": "0",
+            "persuade": "0",
+            "communication": "0",
+            "hide": "0"
+        },
+        "combat_ability_value":{
+            "hit_rate": "0",
+            "dodge_rate": "0",
+            "speed": "0",
+            "running_speed":"0",
+            "attack_priority":"0",
+            "defensive":{
+                "basic_defence":"0",
+                "full_defence":"0",
+                "parry_defence":"0",
+                "magic_defence":"0"
+            },
+            "attack":{
+                "basic_attack":"0",
+                "full_attack":"0",
+                "parry_attack":"0",
+                "magic_attack":"0"
+            },
+            "HP":"0",
+            "spiritual_power":"0",
+            "perceived_distance":"0",
+            "visual_distance":"0",
+            "combat techniques":{
+                "fist_techniques":"0",
+                "palm_techniques":"0",
+                "leg_techniques":"0",
+                "footwork_mastery":"0",
+                "core_strength":"0",
+                "grappling_techniques":"0",
+                "melee_combat":"0",
+                "ranged_combat":"0"
+            }
+        },
+        "sexuality":{
+            "sexual_experience":"0",
+            "sexual_sensitivity":{
+                "breast":"0",
+                "nipple":"0",
+                "genitals":{
+                    "labia":"0",
+                    "clitoris": "0",
+                    "vaginal": "0",
+                    "uterine": "0"
+                },
+                "asshole":"0",
+                "thigh":"0",
+                "hip":"0",
+                "foot":"0"
+            },
+            "sexual_response":"0",
+            "sexual_desire":"0",
+            "sexual_orientation":"0"
+        }
+    }
+}
